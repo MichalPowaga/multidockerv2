@@ -1,0 +1,12 @@
+version: "3"
+services: 
+    fibweb:
+        build: 
+            context: ./fibweb
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - /app/node_modules
+            - ./fibweb:/app
+        stdin_open: true
+        ports: 
+            - 3000:3000
