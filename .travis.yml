@@ -14,3 +14,16 @@ after_success:
     - docker build -t michalpowaga/multidockerv2-fibweb ./fibweb
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     - docker push michalpowaga/multidockerv2-fibweb
+
+deploy:
+    provider: elasticbeanstalk
+    region: eu-west-1
+    app: multidockerv2-2nd-try
+    env: Multidockerv22ndTry-env
+    bucket: elasticbeanstalk-eu-west-1-442152860333
+    bucket_path: multidockerv2
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+        
