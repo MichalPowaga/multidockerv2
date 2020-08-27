@@ -10,15 +10,7 @@ function App() {
         <p>
           This is MY React Application!
         </p>
-        <p>Docker compose - wystawienie portu!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>React app running in nginx container.</p>
       </header>
     </div>
   );
