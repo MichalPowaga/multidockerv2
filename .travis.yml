@@ -11,6 +11,6 @@ script:
     - docker run -e CI=true michalpowaga/fibweb-tests npm test
 
 after_success:
-    - docker build -t michalpowaga/fibweb ./fibweb
+    - docker build -t michalpowaga/multidockerv2-fibweb ./fibweb
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push michalpowaga/fibweb
+    - docker push michalpowaga/multidockerv2-fibweb

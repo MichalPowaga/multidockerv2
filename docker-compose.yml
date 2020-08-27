@@ -3,10 +3,10 @@ services:
     fibweb:
         build: 
             context: ./fibweb
-            dockerfile: Dockerfile.dev
+            dockerfile: Dockerfile
         volumes: 
             - /app/node_modules
             - ./fibweb:/app
         stdin_open: true
         ports: 
-            - 3000:3000
+            - 8080:80
