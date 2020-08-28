@@ -22,8 +22,8 @@ after_success:
 deploy:
     provider: elasticbeanstalk
     region: eu-west-1
-    app: multidockerv2-2nd-try
-    env: Multidockerv22ndTry-env
+    app: multidockerv2-1nd-try
+    env: Multidockerv21ndTry-env
     bucket: elasticbeanstalk-eu-west-1-442152860333
     bucket_path: multidockerv2
     on:
