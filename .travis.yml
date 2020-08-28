@@ -12,8 +12,12 @@ script:
 
 after_success:
     - docker build -t michalpowaga/multidockerv2-fibweb ./fibweb
+    - docker build -t michalpowaga/multidockerv2-proxy ./proxy
+
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
     - docker push michalpowaga/multidockerv2-fibweb
+    - docker push michalpowaga/multidockerv2-proxy
 
 deploy:
     provider: elasticbeanstalk

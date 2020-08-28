@@ -4,6 +4,13 @@
         {
             "name": "fibweb",
             "image": "michalpowaga/multidockerv2-fibweb",
+            "hostname": "fibweb",
+            "essential": true,
+            "memory": 128
+        },
+        {
+            "name": "proxy",
+            "image": "michalpowaga/multidockerv2-proxy",
             "essential": true,
             "memory": 128,
             "portMappings": [
@@ -11,7 +18,8 @@
                     "hostPort": 80,
                     "containerPort": 80
                 }
-            ]
+            ],
+            "links": ["fibweb"]
         }
     ]
 }

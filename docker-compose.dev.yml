@@ -3,12 +3,17 @@ services:
     fibweb:
         build: 
             context: ./fibweb
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - ./fibweb:/app
+            - /app/node_modules
+        stdin_open: true
     proxy:
         build:
             context: ./proxy
             dockerfile: Dockerfile
         restart: always
+        stdin_open: true
         ports: 
             - 8080:80
         depends_on: 
