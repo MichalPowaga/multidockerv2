@@ -5,10 +5,10 @@ services:
     - docker
 
 before_install:
-    - docker build -t michalpowaga/fibweb-tests -f ./fibweb/Dockerfile.dev ./fibweb
+    - docker build -t michalpowaga/fibweb-tests -f ./fibweb/Dockerfile.test ./fibweb
 
 script:
-    - docker run -e CI=true michalpowaga/fibweb-tests npm test
+    - docker run -e CI=true michalpowaga/fibweb-tests
 
 after_success:
     - docker build -t michalpowaga/multidockerv2-fibweb ./fibweb
