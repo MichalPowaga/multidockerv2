@@ -25,7 +25,7 @@ services:
         stdin_open: true
     fibservice:
         build: 
-            context: .\fibservice
+            context: ./fibservice
             dockerfile: Dockerfile
         restart: always
         env_file: 
@@ -33,7 +33,9 @@ services:
         stdin_open: true
     postgres:
         image: "postgres"
-        env_file: 
-            - ./env.list
+        environment: 
+            - POSTGRES_DB=fibdb
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres_pass123
     redis:
         image: "redis"

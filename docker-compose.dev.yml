@@ -32,7 +32,7 @@ services:
             - redis
     fibservice:
         build: 
-            context: .\fibservice
+            context: ./fibservice
             dockerfile: Dockerfile.dev
         restart: always
         volumes:
@@ -42,9 +42,9 @@ services:
             - ./env.list
     postgres:
         image: "postgres"
-        env_file: 
-            - ./env.list
-        # volumes: 
-        #     - ./postgres/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+        environment: 
+            - POSTGRES_DB=fibdb
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres_pass123
     redis:
         image: "redis"
