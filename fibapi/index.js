@@ -13,11 +13,11 @@ app.use(bodyParser.json());
 // Postgres Client Setup
 const { Pool } = require('pg');
 const pgClient = new Pool({
-    user: keys.pgUser,
     host: keys.pgHost,
-    database: keys.pgDatabase,
-    password: keys.pgPassword,
     port: keys.pgPort,
+    database: keys.pgDatabase,
+    user: keys.pgUser,
+    password: keys.pgPassword,
 });
 
 // Redis Client Setup
@@ -36,16 +36,25 @@ app.get('/', (req, res) => {
 });
 
 app.get('/values/all', async (req, res) => {
+    /*
     await pgClient.query('CREATE TABLE IF NOT EXISTS values (number INT);');
     const values = await pgClient.query('select * from values');
-    console.log(values);
     res.send(values.rows);
+    */
+    res.send([ { number: 33 }, { number: 22 }, { number: 80085 } ]);
 });
 
 app.get('/values/current', async (req, res) => {
+    /*
     redisClient.hgetall('values', (err, values) => {
         res.send(values);
     });
+    */
+   const arr = [];
+    arr['1'] = '1';
+    arr['3'] = '2';
+    arr['4'] = '1111234500';
+    res.send(arr)
 });
 
 app.post('/values', async (req, res) => {
