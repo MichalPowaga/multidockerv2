@@ -14,7 +14,7 @@ class Fib extends Component {
     }
 
     async fetchValues() {
-        const values = await axios.get('/api/values/current');
+        // const values = await axios.get('/api/values/current');
         // this.setState({ values: values.data });
         const arr = [];
         arr['1'] = '1';
@@ -24,17 +24,17 @@ class Fib extends Component {
     }
 
     async fetchIndexes() {
-        const seenIndexes = await axios.get('/api/values/all');
+        // const seenIndexes = await axios.get('/api/values/all');
         // this.setState({ seenIndexes: seenIndexes.data });
-        this.setState({ seenIndexes: '[1, 2, 3]' });
+        this.setState({ seenIndexes:  [ { number: 33 }, { number: 22 }, { number: 1500 } ] });
     }
 
     handleSubmit = async event => {
         event.preventDefault();
 
-        await axios.post('/api/values', {
-            index: this.state.index
-        });
+        // await axios.post('/api/values', {
+        //     index: this.state.index
+        // });
 
         this.setState({ index: '' });
     };
