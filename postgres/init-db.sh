@@ -1,0 +1,1 @@
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" --command "CREATE TABLE IF NOT EXISTS values (number INT);"

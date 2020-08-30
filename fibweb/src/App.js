@@ -2,18 +2,28 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import OtherPage from './OtherPage';
+import Fib from './Fib';
+
+
 function App() {
   return (
+    <Router>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>This is MY React Application!</p>
-        <p>Accessed via nginx proxy with live update if in dev dockerfile is used.</p>
-        <p>I'm going to create multiple docker-compose.yml files (dev and prod). WORKS FINE!</p>
-        <p>...but NOT everytime ;-(!</p>
+        <Link to="/">Home</Link>
+        <Link to="/otherpage">Other Page</Link>
       </header>
+      <div>
+        <Route exact path="/" component={Fib} />
+        <Route path="/otherpage" component={OtherPage} />
+      </div>
     </div>
-  );
+        </Router>
+        );
 }
 
 export default App;

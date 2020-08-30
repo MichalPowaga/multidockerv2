@@ -13,4 +13,27 @@ services:
             - 8080:80
         depends_on: 
             - fibweb
-
+    fibapi:
+        build:
+            context: ./fibapi
+            dockerfile: Dockerfile
+        env_file: 
+            - ./env.list
+        depends_on:
+            - postgres
+            - redis
+        stdin_open: true
+    fibservice:
+        build: 
+            context: .\fibservice
+            dockerfile: Dockerfile
+        restart: always
+        env_file: 
+            - ./env.list
+        stdin_open: true
+    postgres:
+        image: "postgres"
+        env_file: 
+            - ./env.list
+    redis:
+        image: "redis"
