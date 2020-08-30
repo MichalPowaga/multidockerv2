@@ -36,25 +36,25 @@ app.get('/', (req, res) => {
 });
 
 app.get('/values/all', async (req, res) => {
-    /*
     await pgClient.query('CREATE TABLE IF NOT EXISTS values (number INT);');
     const values = await pgClient.query('select * from values');
     res.send(values.rows);
-    */
+    /*
     res.send([ { number: 33 }, { number: 22 }, { number: 80085 } ]);
+    */
 });
 
 app.get('/values/current', async (req, res) => {
-    /*
     redisClient.hgetall('values', (err, values) => {
         res.send(values);
     });
-    */
+    /*
    const arr = [];
     arr['1'] = '1';
     arr['3'] = '2';
     arr['4'] = '1111234500';
     res.send(arr)
+    */
 });
 
 app.post('/values', async (req, res) => {

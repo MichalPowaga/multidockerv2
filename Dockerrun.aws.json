@@ -19,7 +19,21 @@
                     "containerPort": 80
                 }
             ],
-            "links": ["fibweb"]
+            "links": ["fibweb", "fibapi"]
+        },
+        {
+            "name": "fibapi",
+            "image": "michalpowaga/multidockerv2-fibapi",
+            "hostname": "fibapi",
+            "essential": false,
+            "memory": 128
+        },
+        {
+            "name": "fibservice",
+            "image": "michalpowaga/multidockerv2-fibservice",
+            "hostname": "fibservice",
+            "essential": false,
+            "memory": 128
         }
     ]
 }
